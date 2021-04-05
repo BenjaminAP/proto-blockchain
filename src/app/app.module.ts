@@ -6,6 +6,7 @@ import { UploadComponent } from './component/upload/upload.component';
 
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { BlockchainComponent } from './component/blockchain/blockchain.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { BlockchainComponent } from './component/blockchain/blockchain.component
   imports: [
     BrowserModule,
     NgxFileDropModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
