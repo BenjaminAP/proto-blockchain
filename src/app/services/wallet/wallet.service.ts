@@ -13,9 +13,11 @@ export class WalletService {
   constructor(private http: HttpClient) { }
 
   public getMnemonic(): Observable<string> {
-    return this.http.get(`${this.server_route}wallet/new/mnemonic`).pipe(map((mnemonic: string) => {
-      console.log(`${this.server_route}wallet/new/mnemonic`);
-      return mnemonic
+    console.log(`${this.server_route}wallet/new/mnemonic`);
+
+    return this.http.get(`${this.server_route}wallet/new/mnemonic`, {responseType: 'text'}).pipe(map((mnemonic: string) => {
+      console.log(`${this.server_route}wallet/new/mnemonic`, mnemonic);
+      return mnemonic;
     }));
   }
 }
