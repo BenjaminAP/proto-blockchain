@@ -8,10 +8,11 @@ import { NgxFileDropModule } from 'ngx-file-drop';
 import { BlockchainComponent } from './component/blockchain/blockchain.component';
 import {HttpClientModule} from "@angular/common/http";
 import { WalletComponent } from './component/wallet/wallet.component';
-import { HeaderToolbarComponent } from './component/header-toolbar/header-toolbar.component';
+import {HeaderToolbarComponent, Mnemonic_Dialog} from './component/header-toolbar/header-toolbar.component';
 import {MatIconModule} from "@angular/material/icon";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UploadComponent,
     BlockchainComponent,
     WalletComponent,
-    HeaderToolbarComponent
+    HeaderToolbarComponent,
+    Mnemonic_Dialog
   ],
   imports: [
     BrowserModule,
@@ -27,6 +29,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     MatIconModule,
     MatToolbarModule,
+    MatDialogModule,
     BrowserAnimationsModule,
   ],
   providers: [],
