@@ -24,7 +24,8 @@ export class HeaderToolbarComponent implements OnInit {
 
   public openDialog(): void {
     const dialogRef = this.dialog.open(Mnemonic_Dialog, {
-      width: '250px',
+      width: '400px',
+      height: '400px',
       data: {}
     });
 
