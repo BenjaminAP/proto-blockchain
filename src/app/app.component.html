@@ -1,4 +1,17 @@
-<app-header-toolbar></app-header-toolbar>
-<div class="signature_component">
+<div style="background-color: dimgray; height: 100%">
+  <app-header-toolbar></app-header-toolbar>
+  <div class="signature_component">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          Address: {{this.pubAddress}}
+        </mat-card-title>
+      </mat-card-header>
+    </mat-card>
+  </div>
+  <div class="signature_component">
     <app-signature></app-signature>
+  </div>
+
 </div>
+
