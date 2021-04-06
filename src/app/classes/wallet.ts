@@ -16,6 +16,10 @@ export class Wallet {
     public getPublicKey(): string {
       return this.keyPair.getPublic('hex');
     }
+    
+    public sign(msg: string): string {
+        return this.keyPair.sign(msg).toHex();
+    }
 }
 
 

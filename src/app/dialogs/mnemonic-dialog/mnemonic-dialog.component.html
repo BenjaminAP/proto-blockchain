@@ -1,7 +1,14 @@
 <div>
-  <textarea [(ngModel)]="mnemonic_by_user" (ngModelChange)="setMnemonic()" placeholder="{{placeholder}}" style="width: 100%; height: 50%">
-    {{mnemonic | async}}
-  </textarea>
+    <h3>
+        <b>
+            Mnemonic
+        </b>
+    </h3>
+
+    <textarea [(ngModel)]="mnemonic_by_user" (ngModelChange)="setMnemonic()" placeholder="{{placeholder}}" style="width: 100%; height: 150px">
+        {{mnemonic | async}}
+    </textarea>
+
     <button mat-raised-button (click)="generateMnemonic()" style="background-color: transparent">
         <mat-icon color="secondary">auto_fix_high</mat-icon>
     </button>

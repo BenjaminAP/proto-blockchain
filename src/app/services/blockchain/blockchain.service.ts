@@ -16,7 +16,6 @@ export class BlockchainService {
 
   public requestMessageOwnershipVerification(pubAddress: string): Observable<string> {
     
-
     return this.http.get(`${this.server_route}signature/request/${pubAddress}`, {responseType: 'text'})
       .pipe(map((signatureOwnership: string) => signatureOwnership));
   }

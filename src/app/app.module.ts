@@ -17,8 +17,9 @@ import { SignatureComponent } from './component/signature/signature.component';
 import { MnemonicDialogComponent } from './dialogs/mnemonic-dialog/mnemonic-dialog.component';
 import {HeaderToolbarComponent} from './component/header-toolbar/header-toolbar.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatCardMdImage, MatCardModule} from '@angular/material/card';
+import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import {MatButtonModule} from '@angular/material/button';
                 MatCardModule,
                 BrowserAnimationsModule,
                 FormsModule,
+                MatInputModule,
                 MatButtonModule,
         ],
   providers: [],

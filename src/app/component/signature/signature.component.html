@@ -6,11 +6,25 @@
     </mat-card-header>
 
     <mat-card-content>
+        <mat-card>
+            <h3>
+                <b>Message to Sign</b>
+            </h3>
+            <input matInput placeholder="request for meg to sign" value="{{requested_sig | async}}" style="width: 90%">
 
+            <h3>
+                <b>Sign Message</b>
+            </h3>
+            <input matInput placeholder="Sign msg" value="{{signature | async}}" style="width: 90%">
+        </mat-card>
     </mat-card-content>
 
     <mat-card-actions>
-        <button mat-raised-button>
+        <button mat-raised-button (click)="requestSignature()">
+            Request Msg
+        </button>
+
+        <button mat-raised-button (click)="signMsg()">
             Sign Message
         </button>
     </mat-card-actions>
