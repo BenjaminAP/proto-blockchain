@@ -8,6 +8,8 @@ export class Wallet {
 
     constructor(mnemonic: string) {
       const ec = new elliptic.eddsa('ed25519');
+      
+      /// private/public key generated.
       this.keyPair = ec.keyFromSecret(Buffer.from(JSON.stringify(mnemonic)));
     }
 

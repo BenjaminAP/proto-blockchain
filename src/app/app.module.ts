@@ -6,14 +6,17 @@ import { UploadComponent } from './component/upload/upload.component';
 
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { BlockchainComponent } from './component/blockchain/blockchain.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClientModule} from '@angular/common/http';
 import { WalletComponent } from './component/wallet/wallet.component';
-import {HeaderToolbarComponent, Mnemonic_Dialog} from './component/header-toolbar/header-toolbar.component';
-import {MatIconModule} from "@angular/material/icon";
-import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatIconModule} from '@angular/material/icon';
+import {MatToolbarModule} from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatDialogModule} from "@angular/material/dialog";
+import {MatDialogModule} from '@angular/material/dialog';
 import {FormsModule} from '@angular/forms';
+import { SignatureComponent } from './component/signature/signature.component';
+import { MnemonicDialogComponent } from './dialogs/mnemonic-dialog/mnemonic-dialog.component';
+import {HeaderToolbarComponent} from './component/header-toolbar/header-toolbar.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,8 @@ import {FormsModule} from '@angular/forms';
     BlockchainComponent,
     WalletComponent,
     HeaderToolbarComponent,
-    Mnemonic_Dialog
+    SignatureComponent,
+    MnemonicDialogComponent
   ],
         imports: [
                 BrowserModule,
@@ -31,6 +35,7 @@ import {FormsModule} from '@angular/forms';
                 MatIconModule,
                 MatToolbarModule,
                 MatDialogModule,
+                MatSnackBarModule,
                 BrowserAnimationsModule,
                 FormsModule,
         ],

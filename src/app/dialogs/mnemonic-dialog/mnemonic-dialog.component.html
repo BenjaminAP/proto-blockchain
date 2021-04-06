@@ -1,0 +1,21 @@
+<div>
+  <textarea [(ngModel)]="mnemonic_by_user" (ngModelChange)="setMnemonic()" placeholder="{{placeholder}}" style="width: 100%; height: 50%">
+    {{mnemonic | async}}
+  </textarea>
+    <button mat-icon-button (click)="generateMnemonic()" style="background-color: transparent">
+        <mat-icon color="secondary">auto_fix_high</mat-icon>
+    </button>
+    <button mat-icon-button (click)="createWallet()">
+        create/recover wallet
+    </button>
+
+    <button mat-icon-button (click)="onNoClick()">
+        close
+    </button>
+
+    <div>
+        <ul>
+            <li>remember to save mnemonic to recover wallet later</li>
+        </ul>
+    </div>
+</div>

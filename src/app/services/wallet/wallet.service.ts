@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {Wallet} from '../../classes/wallet';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ export class WalletService {
   private mnemonic: string;
   private wallet: Wallet;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              private snackBar: MatSnackBar) { }
 
   public getMnemonic(): Observable<string> {
 
@@ -30,6 +32,9 @@ export class WalletService {
 
   public generateWallet(): void {
     this.wallet = new Wallet(this.mnemonic);
+    this.snackBar.open('wallet Recovered/Generated', 'Success', {
+      duration: 2000,
+    });
   }
 
   public getPublicKey(): string {
