@@ -13,6 +13,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from "@angular/material/dialog";
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,15 +24,16 @@ import {MatDialogModule} from "@angular/material/dialog";
     HeaderToolbarComponent,
     Mnemonic_Dialog
   ],
-  imports: [
-    BrowserModule,
-    NgxFileDropModule,
-    HttpClientModule,
-    MatIconModule,
-    MatToolbarModule,
-    MatDialogModule,
-    BrowserAnimationsModule,
-  ],
+        imports: [
+                BrowserModule,
+                NgxFileDropModule,
+                HttpClientModule,
+                MatIconModule,
+                MatToolbarModule,
+                MatDialogModule,
+                BrowserAnimationsModule,
+                FormsModule,
+        ],
   providers: [],
   bootstrap: [AppComponent]
 })

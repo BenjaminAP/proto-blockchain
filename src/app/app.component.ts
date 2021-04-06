@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {WalletService} from "./services/wallet/wallet.service";
+import {WalletService} from './services/wallet/wallet.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,6 @@ import {WalletService} from "./services/wallet/wallet.service";
 export class AppComponent {
   title = 'proto-block';
 
-  constructor(private wallet_service: WalletService) {
-    this.wallet_service.getMnemonic().subscribe(data => console.log(data));
+  constructor(private walletService: WalletService) {
   }
 }

@@ -1,18 +1,6 @@
-//
-// const EdDSA = require('elliptic').eddsa
+
 import * as elliptic from 'elliptic';
 import {Buffer} from 'buffer';
-
-//
-// const ec = new EdDSA('ed25519');
-//
-// const key = ec.keyFromSecret(Buffer.from(JSON.stringify(mnemonic), 'hex'));
-//
-// // console.log(key);
-//
-// // console.log(mnemonic);
-//
-// const  bitcointLib = require('bitcoinjs-lib');
 
 export class Wallet {
 

@@ -30,6 +30,7 @@ export class UploadComponent implements OnInit {
           this.fileAsText(file);
 
           // Here you can access the real file
+          
           console.log(droppedFile.relativePath, file);
 
           /**

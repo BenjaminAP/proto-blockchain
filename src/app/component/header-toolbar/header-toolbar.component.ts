@@ -3,7 +3,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {WalletService} from "../../services/wallet/wallet.service";
 import {map} from "rxjs/operators";
-import {Observable} from "rxjs";
+import {Observable, of} from 'rxjs';
 import {BlockchainService} from "../../services/blockchain/blockchain.service";
 
 export interface DialogData {
@@ -44,6 +44,7 @@ export class HeaderToolbarComponent implements OnInit {
 export class Mnemonic_Dialog {
 
   public mnemonic: Observable<string>;
+  public mnemonic_by_user: string;
 
   constructor(
     private walletService: WalletService,
@@ -55,14 +56,23 @@ export class Mnemonic_Dialog {
 
   public generateMnemonic(): void {
     this.mnemonic = this.walletService.getMnemonic()
-      .pipe(map((mnemonic: string) => mnemonic));
+      .pipe(map((mnemonic: string) => {
+        this.mnemonic_by_user = mnemonic;
+        return mnemonic;
+      }));
+  }
+  
+  public setMnemonic(): void {
+    this.walletService.setMnemonic(this.mnemonic_by_user);
+    console.log('mnemonic changed');
   }
 
   public requestMessageOwnershipVerification(): void {
+    
     this.walletService.generateWallet();
     const pubAddress = this.walletService.getPublicKey();
 
-    this.blockchainService.requestMessageOwnershipVerification(pubAddress);
+    this.blockchainService.requestMessageOwnershipVerification(pubAddress).subscribe(data => console.log('verification signature', data));
   }
 
   onNoClick(): void {

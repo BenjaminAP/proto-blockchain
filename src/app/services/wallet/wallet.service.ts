@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {map} from "rxjs/operators";
-import {Wallet} from "../../classes/wallet";
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
+import {Wallet} from '../../classes/wallet';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +22,10 @@ export class WalletService {
         this.mnemonic = mnemonic;
         return mnemonic;
     }));
+  }
+  
+  public setMnemonic(new_mnemonic: string): void {
+    this.mnemonic = new_mnemonic;
   }
 
   public generateWallet(): void {
