@@ -20,6 +20,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import {MatInputModule} from '@angular/material/input';
                 BrowserAnimationsModule,
                 FormsModule,
                 MatInputModule,
+                MatDividerModule,
                 MatButtonModule,
         ],
   providers: [],

@@ -12,7 +12,8 @@ import {map} from 'rxjs/operators';
 export class SignatureComponent implements OnInit {
   
   public requested_sig: Observable<string>;
-  public signature: Observable<string>;
+  public veryMsg: string;
+  public signature: string;
 
   constructor(private walletService: WalletService,
               private blockchainService: BlockchainService) {
@@ -24,11 +25,18 @@ export class SignatureComponent implements OnInit {
   }
   
   public requestSignature(): void {
-    this.requested_sig = this.blockchainService.requestMessageOwnershipVerification(this.walletService.getPublicKey());
+    this.requested_sig = this.blockchainService.requestMessageOwnershipVerification(this.walletService.getPublicKey()).pipe(map((vm: string) => {
+      this.veryMsg = vm;
+      return vm;
+    }));
   }
   
   public signMsg(): void {
-    this.signature = this.requested_sig.pipe(map((msg: string ) => this.walletService.signMsg(msg)));
+    this.signature = this.walletService.signMsg(this.veryMsg);
+  }
+  
+  public submitStar(): void {
+    this.blockchainService.submitStar();
   }
 
 }
