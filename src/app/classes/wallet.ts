@@ -1,11 +1,9 @@
 //
 // const EdDSA = require('elliptic').eddsa
+import * as elliptic from 'elliptic';
+
 //
 // const ec = new EdDSA('ed25519');
-//
-// const bip39 = require('bip39');
-//
-// const mnemonic = bip39.generateMnemonic();
 //
 // const key = ec.keyFromSecret(Buffer.from(JSON.stringify(mnemonic), 'hex'));
 //
@@ -17,13 +15,20 @@
 
 export class Wallet {
 
-        constructor() {
+    private keyPair: any;
+    private ec: any;
 
-        }
+    constructor() {
+       this.ec = new elliptic.eddsa('ed25519');
+    }
 
-        // public generateMnemonic(): string {
-        //         // return bip39.generateMnemonic();
-        // }
+    public generateWallet(mnemonic: string): void {
+      this.keyPair = this.ec.keyFromSecret(Buffer.from(JSON.stringify(mnemonic), 'hex'));
+    }
+
+    public getPublicKey(): string {
+      return this.keyPair.getPublicKey();
+    }
 }
 
 

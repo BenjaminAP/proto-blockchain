@@ -49,8 +49,11 @@ export class Mnemonic_Dialog {
     public dialogRef: MatDialogRef<Mnemonic_Dialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {
 
-    this.mnemonic = this.walletService.getMnemonic().pipe(map((mnemonic: string) => mnemonic));
-    this.mnemonic.subscribe(data => data);
+  }
+
+  public generateMnemonic(): void {
+    this.mnemonic = this.walletService.getMnemonic()
+      .pipe(map((mnemonic: string) => mnemonic));
   }
 
   onNoClick(): void {
