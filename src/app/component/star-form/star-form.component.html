@@ -1,0 +1,42 @@
+<mat-card>
+
+    <mat-card-header>
+        <mat-card-title>
+            Star Form
+        </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Declination Coordinates</mat-label>
+                <input matInput placeholder="Declination" [formControl]="dec">
+                <mat-hint>68° 52' 56.9</mat-hint>
+            </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Right Ascension</mat-label>
+                <input matInput placeholder="Angular Distance" [formControl]="ra">
+                <mat-hint>16h 29m 1.0s</mat-hint>
+            </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Story</mat-label>
+                <textarea matInput placeholder="A story for the star" [formControl]="story">
+
+        </textarea>
+                <mat-hint>Something about the star discovery</mat-hint>
+            </mat-form-field>
+        </p>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button mat-raised-button (click)="submitStar()">Submit Star</button>
+    </mat-card-actions>
+
+</mat-card>
+

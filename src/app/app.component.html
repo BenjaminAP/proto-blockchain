@@ -1,6 +1,6 @@
-<div style="background-color: dimgray; height: 100%">
+<div style="background-color: dimgray; height: max-content">
   <app-header-toolbar></app-header-toolbar>
-  <div class="signature_component">
+  <div class="component">
     <mat-card>
       <mat-card-header>
         <mat-card-title>
@@ -9,8 +9,12 @@
       </mat-card-header>
     </mat-card>
   </div>
-  <div class="signature_component">
+  <div class="component">
     <app-signature (pubAddressEvent)="pubAddressEventHandler($event)"></app-signature>
+  </div>
+
+  <div class="component">
+    <app-star-form></app-star-form>
   </div>
 
 </div>

@@ -12,7 +12,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { SignatureComponent } from './component/signature/signature.component';
 import { MnemonicDialogComponent } from './dialogs/mnemonic-dialog/mnemonic-dialog.component';
 import {HeaderToolbarComponent} from './component/header-toolbar/header-toolbar.component';
@@ -21,7 +21,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatDividerModule} from '@angular/material/divider';
-import { StarComponent } from './component/star/star.component';
+import { StarFormComponent } from './component/star-form/star-form.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { StarComponent } from './component/star/star.component';
     HeaderToolbarComponent,
     SignatureComponent,
     MnemonicDialogComponent,
-    StarComponent
+    StarFormComponent
   ],
         imports: [
                 BrowserModule,
@@ -48,6 +49,8 @@ import { StarComponent } from './component/star/star.component';
                 MatInputModule,
                 MatDividerModule,
                 MatButtonModule,
+                MatFormFieldModule,
+                ReactiveFormsModule
         ],
   providers: [],
   bootstrap: [AppComponent]

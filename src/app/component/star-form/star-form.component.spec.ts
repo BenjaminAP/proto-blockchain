@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StarComponent } from './star.component';
+import { StarFormComponent } from './star-form.component';
 
-describe('StarComponent', () => {
-  let component: StarComponent;
-  let fixture: ComponentFixture<StarComponent>;
+describe('StarFormComponent', () => {
+  let component: StarFormComponent;
+  let fixture: ComponentFixture<StarFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StarComponent ]
+      declarations: [ StarFormComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StarComponent);
+    fixture = TestBed.createComponent(StarFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
