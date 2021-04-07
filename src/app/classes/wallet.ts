@@ -1,6 +1,7 @@
 
 import * as elliptic from 'elliptic';
 import {Buffer} from 'buffer';
+import {Observable, of} from "rxjs";
 
 export class Wallet {
 
@@ -8,7 +9,7 @@ export class Wallet {
 
     constructor(mnemonic: string) {
       const ec = new elliptic.eddsa('ed25519');
-      
+
       /// private/public key generated.
       this.keyPair = ec.keyFromSecret(Buffer.from(JSON.stringify(mnemonic)));
     }
@@ -16,7 +17,7 @@ export class Wallet {
     public getPublicKey(): string {
       return this.keyPair.getPublic('hex');
     }
-    
+
     public sign(msg: string): string {
         return this.keyPair.sign(msg).toHex();
     }

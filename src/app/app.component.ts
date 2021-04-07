@@ -14,4 +14,8 @@ export class AppComponent {
   constructor(private walletService: WalletService) {
     this.pubAddress = this.walletService.getPublicKey();
   }
+
+  public pubAddressEventHandler(pAddress: string) {
+    this.pubAddress = pAddress;
+  }
 }

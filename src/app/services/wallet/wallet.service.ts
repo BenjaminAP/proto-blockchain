@@ -28,32 +28,32 @@ export class WalletService {
         return mnemonic;
     }));
   }
-  
+
   public setMnemonic(new_mnemonic: string): void {
     this.mnemonic = new_mnemonic;
   }
 
   public generateWallet(): void {
-    
+
     if (!this.mnemonic) {
       this.snackBarService.openSnackBar('Mnemonic empty', 'error');
       return;
     }
-    
+
     this.wallet = new Wallet(this.mnemonic);
     this.snackBarService.openSnackBar('wallet Recovered/Generated', 'Success');
   }
 
   public getPublicKey(): string {
-  
+
     if (!this.wallet) {
       this.snackBarService.openSnackBar('wallet not connected', 'error');
       return;
     }
-    
+
     return this.wallet.getPublicKey();
   }
-  
+
   public signMsg(msg: string): string {
     return this.wallet.sign(msg);
   }
