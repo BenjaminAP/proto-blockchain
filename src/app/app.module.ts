@@ -21,6 +21,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatDividerModule} from '@angular/material/divider';
+import { StarComponent } from './component/star/star.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {MatDividerModule} from '@angular/material/divider';
     WalletComponent,
     HeaderToolbarComponent,
     SignatureComponent,
-    MnemonicDialogComponent
+    MnemonicDialogComponent,
+    StarComponent
   ],
         imports: [
                 BrowserModule,
