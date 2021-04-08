@@ -13,6 +13,7 @@ export class WalletService {
   private server_route = 'http://localhost:3000/';
   private mnemonic: string;
   private wallet: Wallet;
+  private signedMsg: string;
 
   constructor(private http: HttpClient,
               private snackBarService: SnackbarService) {
@@ -45,9 +46,8 @@ export class WalletService {
   }
 
   public getPublicKey(): string {
-
-    if (!this.wallet) {
-      this.snackBarService.openSnackBar('wallet not connected', 'error');
+  
+    if (!this.verifyWalletExist()) {
       return;
     }
 
@@ -55,6 +55,25 @@ export class WalletService {
   }
 
   public signMsg(msg: string): string {
-    return this.wallet.sign(msg);
+    if (!this.verifyWalletExist()) {
+      return;
+    }
+    
+    this.signedMsg = this.wallet.sign(msg);
+    
+    return this.signedMsg;
+  }
+  
+  public getSignedMsg(): string {
+    return this.signedMsg;
+  }
+  
+  private verifyWalletExist(): boolean {
+    if (!this.wallet) {
+      this.snackBarService.openSnackBar('wallet not connected', 'error');
+      return false;
+    }
+    
+    return true;
   }
 }

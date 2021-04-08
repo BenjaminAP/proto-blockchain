@@ -1,7 +1,6 @@
 
 import * as elliptic from 'elliptic';
 import {Buffer} from 'buffer';
-import {Observable, of} from "rxjs";
 
 export class Wallet {
 

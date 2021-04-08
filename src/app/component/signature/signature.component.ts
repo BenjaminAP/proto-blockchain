@@ -38,8 +38,4 @@ export class SignatureComponent implements OnInit {
     this.signature = this.walletService.signMsg(this.veryMsg);
   }
 
-  public submitStar(): void {
-    this.blockchainService.submitStar();
-  }
-
 }

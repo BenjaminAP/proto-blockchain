@@ -10,12 +10,19 @@
             <h3>
                 <b>Message to Sign</b>
             </h3>
-            <input matInput placeholder="request for meg to sign" value="{{requested_sig | async}}" style="width: 100%">
+            <mat-form-field appearance="outline">
+                <mat-label>Requested Signature</mat-label>
+                <input matInput placeholder="request for meg to sign" value="{{requested_sig | async}}" style="width: 100%">
+            </mat-form-field>
 
             <h3>
                 <b>Sign Message</b>
             </h3>
-            <input matInput placeholder="Sign msg" value="{{signature}}" style="width: 100%">
+            <mat-form-field appearance="outline">
+                <mat-label>Message Signed</mat-label>
+                <input matInput placeholder="Sign msg" value="{{signature}}" style="width: 100%">
+            </mat-form-field>
+
         </mat-card>
     </mat-card-content>
 
@@ -26,10 +33,6 @@
 
         <button mat-raised-button (click)="signMsg()">
             Sign Message
-        </button>
-
-        <button mat-raised-button (click)="submitStar()">
-            Submit Star
         </button>
     </mat-card-actions>
 </mat-card>
