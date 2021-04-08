@@ -10,3 +10,6 @@
 1. ```npm install```
 2. ```npm start```
 3. WebApp running in http://localhost:4200/
+
+# GitHub Repo:
+https://github.com/BenjaminAP/proto-blockchain
