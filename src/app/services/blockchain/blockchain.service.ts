@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 import {Star} from '../../component/star-form/star-form.component';
+import {SnackbarService} from '../snackbar/snackbar.service';
 
 interface Data  {
   address: string;
@@ -26,11 +27,16 @@ export class BlockchainService {
   //   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   // };
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private snackBarService: SnackbarService) {
     this.server_route = 'http://localhost:3000';
   }
 
   public requestMessageOwnershipVerification(pubAddress: string): Observable<string> {
+    
+    if (!pubAddress) {
+      this.snackBarService.openSnackBar('Wallet not connected', 'error');
+      return;
+    }
 
     return this.http.get(`${this.server_route}/signature/request/${pubAddress}`, {responseType: 'text'})
       .pipe(map((signatureOwnership: string) => {
@@ -40,7 +46,6 @@ export class BlockchainService {
   }
 
   public submitStar(starData: Star, pubAddress: string, signedMessage: string): void {
-    console.log('submitting star');
     
     const toSubmit: Data = {
       address: pubAddress,
@@ -49,6 +54,8 @@ export class BlockchainService {
       star: starData
     };
     
-    this.http.post<any>(`${this.server_route}/submitStar`, toSubmit).subscribe(temp => console.log('Block submitted', temp));
+    this.http.post<any>(`${this.server_route}/submitStar`, toSubmit).subscribe(temp => {
+      this.snackBarService.openSnackBar('Star submitted', 'Success');
+    });
   }
 }

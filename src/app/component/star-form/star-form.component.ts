@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {BlockchainService} from '../../services/blockchain/blockchain.service';
 import {WalletService} from '../../services/wallet/wallet.service';
+import {SnackbarService} from '../../services/snackbar/snackbar.service';
 
 export interface Star {
   dec: string;
@@ -21,7 +22,9 @@ export class StarFormComponent implements OnInit {
   public story: FormControl;
 
   constructor(public blockchainService: BlockchainService,
-              private walletService: WalletService) {
+              private walletService: WalletService,
+              private snackBarService: SnackbarService) {
+    
     this.dec = new FormControl('');
     this.ra = new FormControl('');
     this.story = new FormControl('');
@@ -31,6 +34,12 @@ export class StarFormComponent implements OnInit {
   }
   
   submitStar(): void {
+  
+    if (!this.walletService.getPublicKey()) {
+      this.snackBarService.openSnackBar('Wallet not connected', 'error');
+      return;
+    }
+    
     const star: Star = {
       dec: this.dec.value.toString(),
       ra: this.ra.value.toString(),
