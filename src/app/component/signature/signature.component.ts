@@ -36,10 +36,12 @@ export class SignatureComponent implements OnInit {
     }
     
     this.pubAddressEvent.emit(this.walletService.getPublicKey());
-    this.requested_sig = this.blockchainService.requestMessageOwnershipVerification(this.walletService.getPublicKey()).pipe(map((vm: string) => {
-      this.veryMsg = vm;
-      return vm;
-    }));
+    this.requested_sig = this.blockchainService
+            .requestMessageOwnershipVerification(this.walletService.getPublicKey())
+            .pipe(map((vm: string) => {
+              this.veryMsg = vm;
+              return vm;
+            }));
   }
 
   public signMsg(): void {

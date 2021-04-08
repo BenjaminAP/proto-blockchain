@@ -12,7 +12,7 @@
             </h3>
             <mat-form-field appearance="outline">
                 <mat-label>Requested Signature</mat-label>
-                <input matInput placeholder="request for meg to sign" value="{{requested_sig | async}}" style="width: 100%">
+                <input matInput placeholder="request for meg to sign" value="{{requested_sig | async}}" style="width: 100%" readonly>
             </mat-form-field>
 
             <h3>
@@ -20,7 +20,7 @@
             </h3>
             <mat-form-field appearance="outline">
                 <mat-label>Message Signed</mat-label>
-                <input matInput placeholder="Sign msg" value="{{signature}}" style="width: 100%">
+                <input matInput placeholder="Sign msg" value="{{signature}}" style="width: 100%" readonly>
             </mat-form-field>
             <h5>You have 5 minutes from when msg was signed to submit it</h5>
 
